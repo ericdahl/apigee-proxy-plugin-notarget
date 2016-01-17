@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="notarget">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1453059657472</CreatedAt>
+    <CreatedBy>eric.c.dahl@gmail.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>notarget</DisplayName>
+    <LastModifiedAt>1453059797624</LastModifiedAt>
+    <LastModifiedBy>eric.c.dahl@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>Assign-Message-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>

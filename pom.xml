@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>apigee-proxy-plugin-notarget</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <org/>
+        <username/>
+        <password/>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                <artifactId>proxy-dependency-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                        <configuration>
+                            <proxySrcDir>./notarget</proxySrcDir>
+                            <proxyDestDir>./target</proxyDestDir>
+                            <proxyRefs>
+                                <proxyRef>./common</proxyRef>
+                            </proxyRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                <artifactId>apigee-edge-maven-plugin</artifactId>
+                <configuration>
+                    <options>validate</options>
+                    <deploymentEnv>test</deploymentEnv>
+                    <hostURL>https://api.enterprise.apigee.com</hostURL>
+                    <apiVersion>v1</apiVersion>
+                    <password>${password}</password>
+                    <options>${options}</options>
+                    <orgName>${org}</orgName>
+                    <userName>${username}</userName>
+                    <password>${password}</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>configure-bundle-step</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
